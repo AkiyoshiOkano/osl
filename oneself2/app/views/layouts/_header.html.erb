@@ -8,13 +8,20 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <%= link_to "ONESELF", 'root_path', id: "logo" %>
+                    <%= link_to "ONESELF", root_path, id: "logo" %>
                 </div>
                 <div class="collapse navbar-collapse navbar-right">
                     <ul class="nav navbar-nav">
-                      <li><%= link_to "Home",    root_path %></li>
-                      <li><%= link_to "Help",    help_path %></li>
-                      <li><%= link_to "Sign in", '#' %></li>
+                      <li><%= link_to "ホーム",    root_path %></li>
+                      <li><%= link_to "使い方",    help_path %></li>
+                  <% if user_signed_in? %>
+                      <li><%= link_to "プロフィールを編集する", edit_user_registration_path, :class => 'navbar-link' %></li>
+                      <li><%= link_to "ログアウト", destroy_user_session_path, :method => :delete, :class => 'navbar-link' %></li>
+                  <% else %>
+                      <li><%= link_to "ユーザー登録", new_user_registration_path, :class => 'navbar-link' %></li>
+                      <li><%= link_to "ログイン", new_user_session_path, :class => 'navbar-link' %></li>
+                      <li><%= link_to "Facebook", user_omniauth_authorize_path(:facebook) %></li>
+                  <% end %>
                     </ul>
                 </div>
         </div>
