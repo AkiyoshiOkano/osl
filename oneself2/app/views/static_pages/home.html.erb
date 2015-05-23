@@ -1,4 +1,11 @@
 <div class="center hero-unit">
+
+  <% if user_signed_in? %>
+  <h1>ようこそ、<%= current_user.name %>さん</h1>
+  <p><%= current_user.name %>さんの事前ユーザー登録が完了しました。</p>
+   <%= image_tag "https://graph.facebook.com/#{current_user.uid}/picture?type=large"  %>
+
+  <% else %>
   <h1>Welcome to the ONESELF</h1>
 
   <h2>
@@ -8,4 +15,5 @@
   </h2>
 
   <%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
+  <% end %>
 </div>
