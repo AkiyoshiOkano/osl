@@ -1,8 +1,23 @@
 <% provide(:title, 'About Us') %>
-<h1>About Us</h1>
-<p>
-  The <a href="http://railstutorial.jp/">Ruby on Rails Tutorial</a>
-  is a project to make a book and screencasts to teach web development
-  with <a href="http://rubyonrails.org/">Ruby on Rails</a>. This
-  is the sample application for the tutorial.
-</p>
+
+<% if user_signed_in? %>
+
+<div class="center hero-unit">
+	<h1>ONESELFについて</h1>
+	<p><br>
+	  ONESELFは「一人一人の個性が認められるより多様性のある社会の実現」をビジョンとしたONESELFチームにより、作られるWEBサービスです。<br>ONESELFは<b><%= current_user.name %></b>さんの全ての能力の数値化を可能にし、<b><%= current_user.name %></b>さんの人生をより豊かにするためのツールになりえます。
+	</p>
+</div>
+
+<% else %>
+
+<div class="center hero-unit">
+	<h1>ONESELFについて</h1>
+	<p><br>
+	  ONESELFは「一人一人の個性が認められるより多様性のある社会の実現」をビジョンとしたONESELFチームにより、作られるWEBサービスです。<br>ONESELFは人間の全ての能力の数値化を可能にし、あなたの人生をより豊かにするためのツールになりえます。
+	<br><br></p>
+
+	<%= link_to "Facebookアカウントでログイン&登録する", user_omniauth_authorize_path(:facebook), class: "btn btn-large btn-primary" %>
+</div>
+
+<% end %>
