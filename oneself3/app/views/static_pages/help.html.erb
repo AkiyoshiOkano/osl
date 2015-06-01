@@ -1,0 +1,9 @@
+<% provide(:title, 'Help') %>
+<h1>使い方</h1>
+
+<% if user_signed_in? %>
+<p><br>
+  ONESELFはWEBサービスONESELFに組み込まれたアルゴリズムにより、<%= current_user.name %>さんの全ての能力を数値化させます。<br>
+  ONESELFの詳細な使い方の説明はもう少々お待ちください。
+</p>
+<% end %>

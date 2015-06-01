@@ -1,0 +1,18 @@
+<div class="center hero-unit">
+
+  <% if user_signed_in? %>
+  <h1>ONESELFへようこそ、<br><%= current_user.name %>さん</h1>
+   <%= image_tag "https://graph.facebook.com/#{current_user.uid}/picture?type=large"  %>
+   <p class="text-muted"><br><%= current_user.name %>さんの事前ユーザー登録が完了しました。サービス本リリースをもう少々お待ちください。</p>
+
+  <% else %>
+  <h1>Welcome to the ONESELF</h1>
+
+  <h3>
+   	こちらより、WEBサービスONESELFへのユーザー登録が可能です。
+  </h3>
+  <p class="text-muted">(現在は、FacebookアカウントからのみONESELFユーザー登録が可能です。)<br><br></p>
+
+  <%= link_to "Facebookアカウントでログイン&登録する", user_omniauth_authorize_path(:facebook), class: "btn btn-large btn-primary" %>
+  <% end %>
+</div>
