@@ -3,14 +3,14 @@ require 'spec_helper'
 describe User do
 
   before do
-  	@user = User.new(uid: "781912261924415", provider: "facebook", name: "Akiyoshi Okano", email: "akiyoshiokano0415@gmail.com") 
+    @user = User.new(name: "Example User", email: "user@example.com")
   end
 
   subject { @user }
 
   it { should respond_to(:name) }
   it { should respond_to(:email) }
-  it { should respond_to(:papers) }
+  it { should respond_to(:microposts) }
 
 
   describe "when name is not present" do
@@ -36,24 +36,15 @@ describe User do
   #describe "micropost associations" do
   #
   #  before { @user.save }
-  #  let!(:older_paper) do
-  #    user.papers.create!(content: "Lorem ipsum" , created_at: 1.day.ago )
+  #  let!(:older_micropost) do
+  #    FactoryGirl.create(:micropost, user: @user, created_at: 1.day.ago)
   #  end
-  #  let!(:newer_paper) do
-  #    user.papers.create!(content: "Lorem ipsum" , created_at: 1.hour.ago)
+  #  let!(:newer_micropost) do
+  #    FactoryGirl.create(:micropost, user: @user, created_at: 1.hour.ago)
   #  end
   #
   #  it "should have the right microposts in the right order" do
-  #    expect(@user.papers.to_a).to eq [newer_paper, older_paper]
-  #  end
-  #end
-
-  #it "should destroy associated microposts" do
-  #    papers = @user.papers.to_a
-  #    @user.destroy
-  #    expect(papers).not_to be_empty
-  #    papers.each do |paper|
-  #      expect(Paper.where(id: paper.id)).to be_empty
+  #    expect(@user.microposts.to_a).to eq [newer_micropost, older_micropost]
   #  end
   #end
 end

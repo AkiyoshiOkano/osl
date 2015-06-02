@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  has_many :papers, dependent: :destroy
+  has_many :microposts
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
