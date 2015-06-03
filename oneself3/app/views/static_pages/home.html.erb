@@ -5,6 +5,17 @@
    <%= image_tag "https://graph.facebook.com/#{current_user.uid}/picture?type=large"  %>
    <p class="text-muted"><br><%= current_user.name %>さんの事前ユーザー登録が完了しました。サービス本リリースをもう少々お待ちください。</p>
 
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/micropost_form' %>
+      </section>
+    </aside>
+  </div>
+
   <% else %>
   <h1>Welcome to the ONESELF</h1>
 
