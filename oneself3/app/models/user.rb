@@ -21,6 +21,12 @@ class User < ActiveRecord::Base
     user
   end
 
+  def feed
+    #このコードは準備段階です。
+    #完全な実装は第11章「ユーザーをフォローする」を参照して下さい。
+    microposts.where("user_id = ?" , id)
+  end
+
   def self.create_unique_string
     SecureRandom.uuid
   end
