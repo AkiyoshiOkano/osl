@@ -3,5 +3,9 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "Paperを投稿してください" ,:size=>"60x10" %>
   </div>
+  <div class="field">
+    <%= f.label :tag_list, "タグ" %><br>
+    <%= text_field_tag 'micropost[tag_list]', @micropost.tag_list.join(','),  "data-role" => "tagsinput" %>
+  </div>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>

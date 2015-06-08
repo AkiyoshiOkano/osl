@@ -15,18 +15,17 @@ before_action :correct_user,   only: :destroy
   end
 
   def index
-    @memos = Micropost.all
+    @microposts = Micropost.all
     @tags = Micropost.tag_counts_on(:tags)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @memos }
     end
   end
 
 
   def tag
-    @micropost = Micropost.tagged_with(params[:name])
+    @microposts = Micropost.tagged_with(params[:name])
     @tags = Micropost.tag_counts_on(:tags)
     
     render 'index'
@@ -51,7 +50,7 @@ before_action :correct_user,   only: :destroy
   private
 
   	def micropost_params
-  		params.require(:micropost).permit(:content)
+  		params.require(:micropost).permit(:content, :tag_list)
   	end
 
     def correct_user
